@@ -1,0 +1,64 @@
+{
+  "name": "dsh-wechat-remote",
+  "version": "1.1.0",
+  "description": "把个人微信变成 DeepSeek Harness 的遥控器与监视器：手机上看进展、发指令、接管会话。通过腾讯官方 ClawBot（iLink）配对，非第三方 hook。",
+  "license": "MIT",
+  "author": {
+    "name": "故渊",
+    "url": "https://github.com/yin1895"
+  },
+  "homepage": "https://github.com/yin1895/dsh-wechat-remote#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yin1895/dsh-wechat-remote.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yin1895/dsh-wechat-remote/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20.3.0"
+  },
+  "icon": "icon.svg",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "cordis-plugin",
+    "wechat",
+    "weixin",
+    "ilink",
+    "clawbot",
+    "remote-control",
+    "agent",
+    "ai-agent"
+  ],
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "lib/*.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "README.en.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node test/selftest.mjs && node test/progress.mjs && node test/delivery.mjs && node test/integration.mjs && node test/protocol.mjs && node test/qr.mjs && node test/e2e.mjs && node test/stream.mjs && node test/client-smoke.mjs && node test/panel-locale.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  }
+}

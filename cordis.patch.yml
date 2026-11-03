@@ -1,0 +1,11 @@
+# wechat-remote — bundle patch
+#
+# One row on purpose: the Host half. The browser half is not a Loader row —
+# declaring `dsh.client` in package.json makes the module system serve
+# `./client` as this package's client bundle. Adding a second `insert` row for
+# `dsh-wechat-remote/client` makes the Host import a browser bundle, which runs
+# `window.__ModuleLoader__.load` in Node and dies with "window is not defined".
+- insert:
+    - id: wechat-remote
+      name: 'dsh-wechat-remote'
+      config: {}

@@ -1,0 +1,17 @@
+# Dependencies are never committed: this bundle has none, but a workspace copy
+# may still grow a node_modules from tooling.
+node_modules/
+
+# The plugin's durable state lives under the Harness home, never here. These
+# patterns only exist so a stray copy can never be committed by accident.
+state.json
+state.json.tmp
+.plugin-manager/
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+*.tgz

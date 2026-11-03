@@ -1,0 +1,27 @@
+name: test
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  offline-suite:
+    name: node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ['20', '22', '24']
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      # The bundle has no dependencies on purpose, and the whole suite runs
+      # offline: no install step, and no Tencent endpoint is ever contacted.
+      - name: Run the offline suite
+        run: npm test
