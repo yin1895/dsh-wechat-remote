@@ -72,6 +72,14 @@ Then open **Settings → Plugins → WeChat Remote**, click **Sign in again**, a
 scan the QR code with your phone. The **Send a test message to WeChat** button
 tells you whether pushes can land right now.
 
+### The settings panel
+
+One page on the desktop shows everything you need: pairing state, manual
+actions, and the current context (which session your phone talks to, who gets
+progress, whether the push channel is ready).
+
+![Settings → Plugins → WeChat Remote](docs/panel.png)
+
 No dependencies, no build step. Node >= 20.3 (uses `AbortSignal.any`).
 
 ## Why pushes are best-effort (and pulls are not)
